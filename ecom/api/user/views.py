@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import serializers, viewsets
+from rest_framework import permissions
 from rest_framework.permissions import AllowAny
 from .serializers import UserSerializer
 from .models import CustomUser
@@ -42,7 +43,7 @@ def signin(request):
                 user.save()
                 return JsonResponse({'error':'Previous session is not logged out. Please login again'})
 
-            token = generateSessionToken
+            token = generateSessionToken()
             user.session_token = token
             user.save()
             login(request,user)
@@ -52,3 +53,29 @@ def signin(request):
 
     except UserModel.DoesNotExist:
         return JsonResponse({'error':'Email not exist'})
+
+def signout(request, id):
+    logout(request)
+
+    UserModel = get_user_model()
+
+    try:
+        user = UserModel.objects.get(pk=id)
+        user.session_token = "0"
+        user.save()
+
+    except UserModel.DoesNotExist:
+        return JsonResponse({'error': 'Invalid user ID'})
+
+    return JsonResponse({'success': 'Logout success'})
+
+class UserViewSet(viewsets.ModelViewSet):
+    permission_classes_by_action = {'create':[AllowAny]}
+    serializer_class = UserSerializer
+    queryset = CustomUser.objects.all().order_by('id')
+
+    def get_permissions(self):
+        try:
+            return [permission() for permission in self.permission_classes_by_action[self.action]]
+        except KeyError:
+            return [permission() for permission in self.permission_classes]
