@@ -27,9 +27,6 @@ def signin(request):
     if not re.match("\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b",username):
         return JsonResponse({"error":"Enter valid email"})
 
-    if not re.match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$",password):
-        return JsonResponse({"error":"Password is too weak."})
-
     UserModel = get_user_model()
 
     try:
