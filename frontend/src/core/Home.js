@@ -19,7 +19,6 @@ function Home() {
 
     return (
         <Base title="Home" description="Tshirts">
-            <h1>Home Component</h1>
             <div className="row">
                 {
                     products.map( (product,index) => {

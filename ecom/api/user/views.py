@@ -24,9 +24,7 @@ def signin(request):
     username = request.POST["email"]
     password = request.POST["password"]
 
-    if not re.match("\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b",username):
-        return JsonResponse({"error":"Enter valid email"})
-
+    
     UserModel = get_user_model()
 
     try:

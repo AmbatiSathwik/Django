@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import {isAutenticated} from './index';
 
-function PrivateRoutes({ children, ...rest }) {
+function PrivateRoutes({ component:Component, ...rest }) {
     
     return (
       <Route
         {...rest}
         render={(props) =>
-        isAutenticated ? (
+        isAutenticated() ? (
             <Component {...props} />
           ) : (
             <Redirect

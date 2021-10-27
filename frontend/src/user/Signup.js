@@ -49,12 +49,13 @@ function Signup() {
           <div className="row">
               <div className="col-md-6 offset-sm-3 text-left">
                 <div className="alert alert-success" style={{ display : success ? "" : "none"}}>
-                    Account created successfully.
+                    Account created successfully.Press here to  <Link to="/signin" >LOGIN.</Link>
                 </div>
               </div>
           </div>
       );
   }
+
   const failuresMessage = () => {
     return(
         <div className="row">
@@ -65,7 +66,7 @@ function Signup() {
             </div>
         </div>
     );
-}
+  }
 
   const signUpForm = () => {
     return (

@@ -22,15 +22,17 @@ export const signin = user => {
     const formdata = new FormData()
 
     for(const name in user){
+        console.log(user[name])
         formdata.append(name, user[name])
     }
 
     return (
-        fetch(`{API}user/login/`,{
+        fetch(`${API}user/login/`,{
             method: "POST",
             body: formdata
         })
         .then(response => {
+            console.log(response)
             return response.json()
         })
         .catch(err => {console.log(err)})
@@ -55,7 +57,7 @@ export const isAutenticated = () => {
 }
 
 export const signout = next => {
-    const userId = isAutenticated() && isAutenticated().user.id
+    const userId = isAutenticated() && isAutenticated().user_details.id
     if(typeof window !== undefined) {
         localStorage.removeItem("jwt")
         cartEmpty(() => {});

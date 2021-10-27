@@ -4,6 +4,9 @@ import Home from './core/Home';
 import Base from './core/Base';
 import PrivateRoutes from './auth/helper/PrivateRoutes';
 import Signup from './user/Signup'
+import Signin from './user/Signin'
+import UserDashboard from './user/UserDashboard';
+
 
 
 const Routes = () => {
@@ -12,7 +15,8 @@ const Routes = () => {
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/signup" component={Signup} exact />
-                {/*<PrivateRoutes path="/user/dashboard/" exact component={} />*/}
+                <Route path="/signin" component={Signin} exact />
+                <PrivateRoutes path="/user/dashboard/" exact component={UserDashboard} /> 
             </Switch>
         </Router>
     );
