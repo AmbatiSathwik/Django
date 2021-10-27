@@ -8,7 +8,7 @@ function Base({ title="Title" , description="Description" , className="bg-dark t
                     <h2 className="display-4">{title}</h2>
                     <p className="lead">{description}</p>
                 </div>
-                <div className="className">{children}</div>
+                <div className={className}>{children}</div>
             </div>
             
             <footer className="footer bg-success mt-auto py-2">

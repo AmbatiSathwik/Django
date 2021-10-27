@@ -28,7 +28,7 @@ export const signin = user => {
     return (
         fetch(`{API}user/login/`,{
             method: "POST",
-            body: formData
+            body: formdata
         })
         .then(response => {
             return response.json()

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-route-dom';
+import { Route, Redirect } from 'react-router-dom';
 import {isAutenticated} from './index';
 
 function PrivateRoutes({ children, ...rest }) {
@@ -23,4 +23,4 @@ function PrivateRoutes({ children, ...rest }) {
     );
 }
 
-export default PrivateRoutes
+export default PrivateRoutes;
