@@ -78,7 +78,7 @@ const Card = ({ product, addtoCart = true, removefromCart = false, reload = unde
           {product.description}
         </p>
         <p className="btn btn-success rounded  btn-sm px-4">
-          $ {product.price}
+         ₹. {product.price}
         </p>
         <div className="row">
           {showAdd(addtoCart)}

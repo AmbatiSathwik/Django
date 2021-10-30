@@ -14,7 +14,7 @@ export const processPayment = (userId,token,paymentInfo) => {
         formdata.append(name, paymentInfo[name])
     }
 
-    return fetch(`${API}payment/${userId}/${token}`, {
+    return fetch(`${API}payment/payment/${userId}/${token}/`, {
         method: "POST",
         body: formdata
     })
