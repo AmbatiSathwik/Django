@@ -31,7 +31,7 @@ function PaymentB({ products, reload=undefined, setReload = f => f, }) {
                     return <Redirect to="/signin" /> 
                 })
             }else{
-                const clientToken = info.clientToken
+                const clientToken = info.clienttoken
                 setInfo({ clientToken })
             }
         })

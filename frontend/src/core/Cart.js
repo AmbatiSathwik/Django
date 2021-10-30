@@ -35,7 +35,8 @@ function Cart() {
     <Base title="Cart" description="Checkout your orders here." >
       <div className="row text-center">
         <div className="col-6">
-          {products.length ? <div><h3>Products</h3> {loadAllProducts(products)}</div>: <h3>No Products</h3>}
+          {loadAllProducts(products)}
+          {/* {products.length>0 ? <div><h3>Products</h3> {loadAllProducts(products)}</div>: <h3>No Products</h3>} */}
         </div>
         <div className="col-6">
           {products.length ? (
