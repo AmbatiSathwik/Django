@@ -7,7 +7,7 @@ import { isAutenticated } from '../auth/helper/index'
 
 // const isAutenticated = true;
 
-const Card = ({ product, addtoCart = true, removefromCart = false }) => {
+const Card = ({ product, addtoCart = true, removefromCart = false, reload = undefined, setReload = f => f }) => {
 
   const [redirect, setRedirect] = useState(false)
   const [redirect1, setRedirect1] = useState(false)
@@ -56,7 +56,10 @@ const Card = ({ product, addtoCart = true, removefromCart = false }) => {
   const showRemove = removefromCart => {
     return (
       removefromCart && (<button
-        onClick={removeFromCart}     //()=>{console.log("removed")
+        onClick={() => {
+          removeFromCart()
+          setReload(!reload)
+        }}     //()=>{console.log("removed")
         className="btn btn-outline-danger btn-block mt-2 mb-2"
       >
         Remove from Cart
