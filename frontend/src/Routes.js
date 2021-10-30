@@ -6,6 +6,8 @@ import PrivateRoutes from './auth/helper/PrivateRoutes';
 import Signup from './user/Signup'
 import Signin from './user/Signin'
 import UserDashboard from './user/UserDashboard';
+import Cart from './core/Cart';
+
 
 
 
@@ -16,6 +18,7 @@ const Routes = () => {
                 <Route path="/" component={Home} exact />
                 <Route path="/signup" component={Signup} exact />
                 <Route path="/signin" component={Signin} exact />
+                <Route path="/cart" component={Cart} exact />
                 <PrivateRoutes path="/user/dashboard/" exact component={UserDashboard} /> 
             </Switch>
         </Router>

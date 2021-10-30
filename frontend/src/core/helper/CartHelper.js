@@ -19,7 +19,7 @@ export const remItemfromCart = (item) => {
         }
 
         cart.map((product,i) => {
-            if(product._id === item._id){
+            if(product.id === item.id){
                 cart.splice(i,1)
             }
         })
@@ -40,6 +40,15 @@ export const cartEmpty = () => {
         localStorage.removeItem("cart")
         let cart = [];
         localStorage.setItem("cart",JSON.stringify(cart));
+    }
+}
+
+export const numCart = () => {
+    if(typeof window !== undefined){
+        let cart = []
+        cart = JSON.parse(localStorage.getItem("cart"))
+        let num = cart.length;
+        return num;
     }
 }
 

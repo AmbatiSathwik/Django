@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAutenticated, signout } from '../auth/helper';
+import { numCart } from './helper/CartHelper';
+
 
 
 const currentTab = (history,path) => {
@@ -29,22 +31,30 @@ const forSignout = (history,path) => {
     }
 }
 
+
+
 function Menu({ history, path }) {
+
+
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
-    <Link className="navbar-brand" style={currentTab(history,"/")} to="/">Home</Link>
+    
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
+    <div className="row">
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
+      <Link className="navbar-brand" style={currentTab(history,"/")} to="/">Home</Link>
         <Link className="nav-link" style={forSignout(history,"/user/dashboard")} to="/user/dashboard">User page</Link>
         <Link className="nav-link" style={currentTab(history,"/cart")} to="/cart">Cart</Link>
         <Link className="nav-link" style={forSign(history,"/signin")} to="/signin" >Signin</Link>
         <Link className="nav-link" style={forSign(history,"/signup")} to="/signup">Signup</Link>
         <span className="nav-link text-warning"  style={forSignout(history,"/signup")} onClick={()=>{ signout(()=>{history.push("/")}) }} >Signout</span>
       </div>
+    </div>
+
     </div>
   </div>
 </nav>

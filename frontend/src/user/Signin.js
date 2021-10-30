@@ -29,7 +29,7 @@ function Signin() {
         .then( data => {
             // console.log("D", data);
             if(data.token){
-                let session_token = data.token;
+                // let session_token = data.token;
                 authenticate(data,()=>{console.log("Token Added")})
                 setValues({
                     ...values,
