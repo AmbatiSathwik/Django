@@ -8,7 +8,7 @@ export const createOrder = ( userId,token, orderDetails ) => {
 
     return (
         fetch(`${API}order/add/${userId}/${token}/` , {
-            method: POST,
+            method: "POST",
             body: formdata
         })
         .then(response => response.json())
